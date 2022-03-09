@@ -1,4 +1,11 @@
+#讀取檔案
 products = []
+with open('products.csv', 'r') as f:
+	for line in f:
+		[name, price] = line.strip().split(',')
+		products.append([name, price])
+
+#建立新菜名與價格
 m = 0
 print('建立菜單嚕~')
 while True:
@@ -8,6 +15,8 @@ while True:
 	price = input('請輸入價格')
 	products.append([name, price])
 print(products)
+
+#詢問菜名與價格
 while True:
 	q = input('您有要詢問的嗎?餐點/價格/q(離開)')
 	if q == '餐點':
@@ -31,6 +40,6 @@ while True:
 with open('products.csv', 'w') as f:
 #encoding='utf-8'，為了修正亂碼問題，用utf-8通用的編碼
 #with open('products.csv', 'w', encoding='utf-8') as f:
-	f.write('商品,價格\n')
+	#f.write('商品,價格\n')
 	for p in products:
 		f.write(p[0] + ',' + p[1] + '\n')
