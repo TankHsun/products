@@ -29,5 +29,8 @@ while True:
 	else:
 		break
 with open('products.csv', 'w') as f:
+#encoding='utf-8'，為了修正亂碼問題，用utf-8通用的編碼
+#with open('products.csv', 'w', encoding='utf-8') as f:
+	f.write('商品,價格\n')
 	for p in products:
 		f.write(p[0] + ',' + p[1] + '\n')
